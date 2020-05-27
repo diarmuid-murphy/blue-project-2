@@ -1,5 +1,6 @@
 var db = require('../models')
 var computerVision = require('../CompVision.js')
+var path = require('path')
 var axios = require('axios')
 var geoip = require('geoip-lite')
 var multer = require('multer')
@@ -48,6 +49,8 @@ module.exports = function (app) {
       // console.log(image)
       var imgPath = host + '/userImages/' + image.filename
       console.log(imgPath)
+
+      console.log(path.join(__dirname, image.filename))
       // console.log(host + '/userImages/' + image.filename)
 
       // computerVision(imgPath)
