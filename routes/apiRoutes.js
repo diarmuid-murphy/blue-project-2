@@ -53,8 +53,8 @@ module.exports = function (app) {
       // console.log(host + '/userImages/' + image.filename)
 
       await computerVision(imgPath)
-    })
 
-    res.redirect('/')
+      res.redirect('/')
+    })
   })
 }
