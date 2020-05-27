@@ -47,6 +47,7 @@ module.exports = function (app) {
     result.images.forEach(function (image) {
       // console.log(image)
       var imgPath = host + '/userImages/' + image.filename
+      console.log(imgPath)
       // console.log(host + '/userImages/' + image.filename)
 
       // computerVision(imgPath)
