@@ -58,10 +58,9 @@ module.exports = function (app) {
       // console.log(imgPath)
       // console.log(host + '/userImages/' + image.filename)
 
-      getCategories(imgPath).then('Hi')
+      getCategories(imgPath).then('Hi').then(res.send('Done'))
     })
 
     // res.redirect('/')
-    res.send('Done')
   })
 }
