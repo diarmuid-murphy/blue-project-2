@@ -2,7 +2,9 @@ node_modules
 npm-debug.log
 .env
 
-public/userImages/*
+public/userImages/*.jpg
+public/userImages/*.jpeg
+public/userImages/*.png
 
 ### macOS ###
 # General
