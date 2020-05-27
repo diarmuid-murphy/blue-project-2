@@ -46,13 +46,13 @@ module.exports = function (app) {
       // console.log(result)
     })
 
-    result.images.forEach(function (image) {
+    result.images.forEach(async function (image) {
       // console.log(image)
       var imgPath = protocol + '://' + host + '/userImages/' + image.filename
       // console.log(imgPath)
       // console.log(host + '/userImages/' + image.filename)
 
-      computerVision(imgPath).then('Hello, World!')
+      await computerVision(imgPath)
     })
 
     res.redirect('/')
