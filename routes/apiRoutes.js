@@ -20,6 +20,7 @@ module.exports = function (app) {
   app.post('/api/travelligence', upload.array('interests-images'), (req, res) => {
     console.log(req.socket.remoteAddress)
 
+    const protocol = req.protocol
     const host = req.get('host')
     const name = req.body.name
     const images = req.files
@@ -47,7 +48,7 @@ module.exports = function (app) {
 
     result.images.forEach(function (image) {
       // console.log(image)
-      var imgPath = host + '/userImages/' + image.filename
+      var imgPath = protocol + '://' + host + '/userImages/' + image.filename
       console.log(imgPath)
       // console.log(host + '/userImages/' + image.filename)
 
