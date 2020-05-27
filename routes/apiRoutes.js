@@ -46,15 +46,22 @@ module.exports = function (app) {
       // console.log(result)
     })
 
-    result.images.forEach(async function (image) {
+    function getCategories(img) {
+      return new Promise((resolve, reject) => {
+        resolve(computerVision(img))
+      })
+    }
+
+    result.images.forEach(function (image) {
       // console.log(image)
       var imgPath = protocol + '://' + host + '/userImages/' + image.filename
       // console.log(imgPath)
       // console.log(host + '/userImages/' + image.filename)
 
-      await computerVision(imgPath)
-
-      res.redirect('/')
+      computerVision(imgPath).then('Hi')
     })
+
+    // res.redirect('/')
+    res.send('Done')
   })
 }
