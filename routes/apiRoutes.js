@@ -49,11 +49,9 @@ module.exports = function (app) {
       // console.log(image)
       var imgPath = host + '/userImages/' + image.filename
       console.log(imgPath)
-
-      console.log(path.join(__dirname, image.filename))
       // console.log(host + '/userImages/' + image.filename)
 
-      // computerVision(imgPath)
+      computerVision(imgPath)
     })
 
     res.redirect('/')
