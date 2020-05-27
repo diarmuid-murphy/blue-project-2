@@ -46,7 +46,7 @@ module.exports = function (app) {
       // console.log(result)
     })
 
-    function getCategories(img) {
+    function getCategories (img) {
       return new Promise((resolve, reject) => {
         resolve(computerVision(img))
       })
@@ -58,7 +58,7 @@ module.exports = function (app) {
       // console.log(imgPath)
       // console.log(host + '/userImages/' + image.filename)
 
-      computerVision(imgPath).then('Hi')
+      getCategories(imgPath).then('Hi')
     })
 
     // res.redirect('/')
