@@ -43,16 +43,16 @@ module.exports = function (app) {
     axios.get(`https://api.agify.io?name=${result.name}&country_id=${result.geo.country}`).then(function (data) {
       // console.log(data)
       result.age = data.data.age
-      console.log(result)
+      // console.log(result)
     })
 
     result.images.forEach(function (image) {
       // console.log(image)
       var imgPath = protocol + '://' + host + '/userImages/' + image.filename
-      console.log(imgPath)
+      // console.log(imgPath)
       // console.log(host + '/userImages/' + image.filename)
 
-      computerVision(imgPath)
+      computerVision(imgPath).then('Hello, World!')
     })
 
     res.redirect('/')
