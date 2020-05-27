@@ -17,6 +17,9 @@ var upload = multer({ storage: storage })
 
 module.exports = function (app) {
   app.post('/api/travelligence', upload.array('interests-images'), (req, res) => {
+    console.log(req.socket.remoteAddress)
+
+    const host = req.get('host')
     const name = req.body.name
     const images = req.files
     const lang = !!req.body['lang-pref']
@@ -36,16 +39,18 @@ module.exports = function (app) {
     }
 
     axios.get(`https://api.agify.io?name=${result.name}&country_id=${result.geo.country}`).then(function (data) {
-      console.log(data)
+      // console.log(data)
       result.age = data.data.age
       console.log(result)
     })
 
-    // result.images.forEach(function (image) {
-    //   console.log(image.path)
+    result.images.forEach(function (image) {
+      // console.log(image)
+      var imgPath = host + '/userImages/' + image.filename
+      // console.log(host + '/userImages/' + image.filename)
 
-    //   computerVision(image.filename)
-    // })
+      computerVision(imgPath)
+    })
 
     res.redirect('/')
   })
